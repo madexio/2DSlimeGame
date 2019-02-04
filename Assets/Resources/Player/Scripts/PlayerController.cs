@@ -5,15 +5,13 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
-
-    //public GameObject blockToPlace;
-
     
-
+    //Things attached to the Slime
     Rigidbody2D playerRigidBody;
     CapsuleCollider2D playerCollider;
     Animator playerAnim;
     SpriteRenderer playerSR;
+    Transform playerTransform;
 
     //Score related things
     int score;
@@ -40,11 +38,12 @@ public class PlayerController : MonoBehaviour {
         health = 3;
         SetScoreText();
 
-        //Get the rigidbody and collider from the object attached to
+        //Get the rigidbody and others from the object attached to
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<CapsuleCollider2D>();
         playerAnim = GetComponent<Animator>();
         playerSR = GetComponent<SpriteRenderer>();
+        playerTransform = GetComponent<Transform>();
 
         //Use the collider to see if grounded
         distToGround = playerCollider.bounds.extents.y + 0.2f;
@@ -56,7 +55,7 @@ public class PlayerController : MonoBehaviour {
         //Horizontal movement
         horMovement = Input.GetAxis("Horizontal");
         Vector2 horVector = new Vector2(horMovement * moveSpeed, playerRigidBody.velocity.y);
-        
+        //Limiting horizontal movement
         if (playerRigidBody.velocity.x < 5)
         {
             playerRigidBody.velocity = horVector;
@@ -71,10 +70,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             playerRigidBody.AddForce(verVector);
-        } else if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            SceneManager.LoadScene("Level1");
-        }
+        } 
 
         //Animation controls
         if (Input.GetAxis("Horizontal") > 0)
@@ -94,7 +90,17 @@ public class PlayerController : MonoBehaviour {
             isWalking = false;
             playerAnim.SetBool("isWalking", isWalking);
         }
-        
+        //Player dies or falls off map, reload scene
+        if (health == 0 || playerTransform.position.y < -5)
+        {
+            SceneManager.LoadScene("Level1");
+        }
+        //Hard reset
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            SceneManager.LoadScene("Level1");
+        }
+
     }
 
     public bool IsGrounded()
@@ -123,13 +129,15 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector2 diff = new Vector2(collision.gameObject.transform.position.x - playerRigidBody.position.x, collision.gameObject.transform.position.y - playerRigidBody.position.y);
+        Vector2 knockBack = new Vector2(0, 10);
         //Debug.Log(diff.x + " " + diff.y);
         if (collision.gameObject.CompareTag("Damage"))
         {
             health--;
             SetScoreText();
             playerAnim.SetBool("isHurt", true);
+            playerTransform.localScale *= 0.75f;
+            playerRigidBody.velocity = knockBack;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
