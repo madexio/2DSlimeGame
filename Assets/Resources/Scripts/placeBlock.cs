@@ -7,6 +7,7 @@ public class placeBlock : MonoBehaviour
 {
 
     public GameObject player;
+    public float changeRate;
     SpriteRenderer platformSR;
     BoxCollider2D platformBC;
     Transform platformTransform;
@@ -43,7 +44,7 @@ public class placeBlock : MonoBehaviour
             platformTransform.transform.position = new Vector2(player.transform.position.x, player.transform.position.y - 1);
             platformSR.enabled = true;
             platformBC.enabled = true;
-            player.transform.localScale -= new Vector3(0.5f, 0.5f, 0);
+            player.transform.localScale -= new Vector3(changeRate, changeRate, 0);
             isPlaced = true;
         }
         //yield return new WaitForSeconds(3);
@@ -52,7 +53,7 @@ public class placeBlock : MonoBehaviour
             //platformTransform.transform.position = player.transform.position;
             platformBC.enabled = false;
             platformSR.enabled = false;
-            player.transform.localScale += new Vector3(0.5f, 0.5f, 0);
+            player.transform.localScale += new Vector3(changeRate, changeRate, 0);
             isPlaced = false;
         }
     }

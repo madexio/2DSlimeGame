@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour {
             health--;
             SetScoreText();
             playerAnim.SetBool("isHurt", true);
-            playerTransform.localScale *= 0.75f;
+            playerTransform.localScale *= 0.9f;
             playerRigidBody.velocity = knockBack;
         }
     }

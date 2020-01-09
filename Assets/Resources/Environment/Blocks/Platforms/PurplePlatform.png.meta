@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: 366ce189f886b2e40b50992b5d86b699
+guid: ad29a8c27988cb54298bf6cb007c8cfe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 21300000
-    second: GrassTufts_0
+      213: 2849179043390210497
+    second: PurplePlatform_L
   - first:
-      213: 21300002
-    second: GrassTufts_1
+      213: -8264253267473351275
+    second: PurplePlatform_M
   - first:
-      213: 21300004
-    second: GrassTufts_2
+      213: 6917971999546137631
+    second: PurplePlatform_R
   - first:
-      213: 21300006
-    second: GrassTufts_3
-  - first:
-      213: 21300008
-    second: GrassTufts_4
-  - first:
-      213: 21300010
-    second: GrassTufts_5
+      213: 2849179043390210497
+    second: PurplePlatform_0
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -59,11 +53,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,70 +98,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GrassTufts_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ccfda5d6d326770448d6a150fcf1051e
-      internalID: 21300000
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GrassTufts_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 11400945f4903834da456ee49dc9b552
-      internalID: 21300002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GrassTufts_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 171a167738c535844aa64ca26a56c5d7
-      internalID: 21300004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GrassTufts_3
+      name: PurplePlatform_L
       rect:
         serializedVersion: 2
         x: 0
@@ -175,20 +106,24 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -1}
+        - {x: 16, y: -1}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
-      spriteID: edbe8765a00b11349bf4f1173d3f6cfc
-      internalID: 21300006
+      spriteID: 40f0da13462d01345a244a870771a585
+      internalID: 2849179043390210497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GrassTufts_4
+      name: PurplePlatform_M
       rect:
         serializedVersion: 2
         x: 32
@@ -196,20 +131,24 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -1}
+        - {x: 16, y: -1}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
-      spriteID: c3e72ce1b004a71489f54ef1777490c1
-      internalID: 21300008
+      spriteID: 8a2cdbb2b8f1e1e4b91200c8ac1a61ce
+      internalID: -8264253267473351275
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GrassTufts_5
+      name: PurplePlatform_R
       rect:
         serializedVersion: 2
         x: 64
@@ -217,14 +156,41 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -1}
+        - {x: 12, y: -1}
+        - {x: 16, y: -1}
+        - {x: 16, y: 14}
+        - {x: 16, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a14986bd540327449aa1ad07453bdf92
+      internalID: 6917971999546137631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurplePlatform_0
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 7
+        width: 2
+        height: 5
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5c2d10ece80ef544a67784b383401e5
-      internalID: 21300010
+      spriteID: 82990503db4aaea4399eaa00e598acce
+      internalID: 2849179043390210497
       vertices: []
       indices: 
       edges: []
@@ -232,7 +198,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 439490da53bee4247bca6c0b41ea71ce
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
