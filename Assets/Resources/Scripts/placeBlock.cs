@@ -11,7 +11,10 @@ public class placeBlock : MonoBehaviour
     SpriteRenderer platformSR;
     BoxCollider2D platformBC;
     Transform platformTransform;
+    Rigidbody2D playerRigidBody;
 
+    public float platformXShift;
+    public float platformYShift;
     bool isPlaced;
 
     // Start is called before the first frame update
@@ -20,6 +23,7 @@ public class placeBlock : MonoBehaviour
         platformSR = GetComponent<SpriteRenderer>();
         platformBC = GetComponent<BoxCollider2D>();
         platformTransform = GetComponent<Transform>();
+        playerRigidBody = player.GetComponent<Rigidbody2D>();
         platformSR.enabled = false;
         platformBC.enabled = false;
 
@@ -41,7 +45,16 @@ public class placeBlock : MonoBehaviour
         
         if (!isPlaced)
         {
-            platformTransform.transform.position = new Vector2(player.transform.position.x, player.transform.position.y - 1);
+            platformXShift = playerRigidBody.velocity.x/5.0f;
+            if (playerRigidBody.velocity.y < 0)
+            {
+                platformYShift = -2.0f;
+            } else
+            {
+                platformYShift = -1f;
+            }
+            platformTransform.transform.position = new Vector2(player.transform.position.x + platformXShift, player.transform.position.y + platformYShift);
+            
             platformSR.enabled = true;
             platformBC.enabled = true;
             player.transform.localScale -= new Vector3(changeRate, changeRate, 0);
