@@ -33,7 +33,7 @@ public class placeBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown("joystick button 1"))
         {
             bePlaced();
             //Debug.Log("Shift key hit");
@@ -45,14 +45,8 @@ public class placeBlock : MonoBehaviour
         
         if (!isPlaced)
         {
-            platformXShift = playerRigidBody.velocity.x/5.0f;
-            if (playerRigidBody.velocity.y < 0)
-            {
-                platformYShift = -2.0f;
-            } else
-            {
-                platformYShift = -1f;
-            }
+            platformXShift = playerRigidBody.velocity.x/6.0f;
+            platformYShift = -1f;
             platformTransform.transform.position = new Vector2(player.transform.position.x + platformXShift, player.transform.position.y + platformYShift);
             
             platformSR.enabled = true;

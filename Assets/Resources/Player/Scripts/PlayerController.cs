@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour {
     public int moveSpeed;
     public int jumpHeight;
 
+    public GameObject temp;
+
     // Use this for initialization
 	void Start () {
 
@@ -48,9 +50,9 @@ public class PlayerController : MonoBehaviour {
         //Use the collider to see if grounded
         distToGround = playerCollider.bounds.extents.y + 0.2f;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
         //Debug.Log(isGrounded());
         //Horizontal movement
         horMovement = Input.GetAxis("Horizontal");
@@ -66,11 +68,11 @@ public class PlayerController : MonoBehaviour {
         }
 
         //Vertical movement (jump)
-        Vector2 verVector = new Vector2(0, jumpHeight*10);
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        Vector2 verVector = new Vector2(0, jumpHeight * 10);
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0")) && IsGrounded())
         {
             playerRigidBody.AddForce(verVector);
-        } 
+        }
 
         //Animation controls
         if (Input.GetAxis("Horizontal") > 0)
@@ -100,6 +102,19 @@ public class PlayerController : MonoBehaviour {
         {
             SceneManager.LoadScene("Level1");
         }
+        //Exit
+        if (Input.GetKeyDown("x"))
+        {
+            Application.Quit();
+        }
+        //Testing
+        if (Input.GetKeyDown("t"))
+        {
+            for (int i = 0; i < 10000; i++)
+            {
+                Instantiate(temp, new Vector3(0, 3, 0), Quaternion.identity);
+            }
+        }
 
     }
 
@@ -123,6 +138,18 @@ public class PlayerController : MonoBehaviour {
         {
             collision.gameObject.SetActive(false);
             score += 3;
+            SetScoreText();
+        }
+        else if (collision.gameObject.CompareTag("PickUpHealth"))
+        {
+            collision.gameObject.SetActive(false);
+            if (health < 3)
+            {
+                health++;
+            } else
+            {
+                score += 3;
+            }
             SetScoreText();
         }
     }

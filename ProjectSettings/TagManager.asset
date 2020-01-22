@@ -9,6 +9,7 @@ TagManager:
   - PickUpBig
   - PickUp
   - Damage
+  - PickUpHealth
   layers:
   - Default
   - TransparentFX
