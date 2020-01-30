@@ -7,6 +7,7 @@ public class placeBlock : MonoBehaviour
 {
 
     public GameObject player;
+    public int slimeSize;
     public float changeRate;
     SpriteRenderer platformSR;
     BoxCollider2D platformBC;
